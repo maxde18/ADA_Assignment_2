@@ -12,3 +12,5 @@ steps:
           --trigger-http \
           --allow-unauthenticated \
           --source gcfun1/
+options:
+  logging: CLOUD_LOGGING_ONLY
