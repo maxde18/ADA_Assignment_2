@@ -1,0 +1,14 @@
+steps:
+  - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
+    entrypoint: 'bash'
+    args:
+      - '-c'
+      - |
+        gcloud functions deploy cal-http \
+          --gen2 \
+          --region=us-central1 \
+          --runtime=python310 \
+          --entry-point=cal_http \
+          --trigger-http \
+          --allow-unauthenticated \
+          --source gcfun1/
