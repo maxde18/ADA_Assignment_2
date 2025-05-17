@@ -4,13 +4,12 @@ steps:
     args:
       - '-c'
       - |
-        gcloud functions deploy cal-http \
+        gcloud functions deploy route_requests \
           --gen2 \
           --region=us-central1 \
           --runtime=python310 \
-          --entry-point=cal_http \
+          --entry-point=route_requests \
           --trigger-http \
-          --allow-unauthenticated \
-          --source gcfun1/
+          --source messaging-service/
 options:
   logging: CLOUD_LOGGING_ONLY
