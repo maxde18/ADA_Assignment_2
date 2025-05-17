@@ -2,7 +2,6 @@ from twilio.rest import Client
 from access_secret import access_secret
 
 
-
 def send_sms(user_numbers):
 
   twilio_sid = access_secret('TWILIO_ACC_SID')
