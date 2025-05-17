@@ -1,12 +1,14 @@
 from twilio.rest import Client
+from access_secret import access_secret
 
-account_sid = 'AC851b4c1508639e4b538bcd58051d682b'
-auth_token = 'c99627017eeaca5342c6647f5e986853'
 
 
 def send_sms(user_numbers):
 
-  client = Client(account_sid, auth_token)
+  twilio_sid = access_secret('TWILIO_ACC_SID')
+  sms_auth_token = access_secret('TWILIO_AUTH_TOKEN')
+
+  client = Client(twilio_sid, sms_auth_token)
 
   for number in user_numbers:
     message = client.messages.create(

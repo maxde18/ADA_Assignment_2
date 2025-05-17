@@ -1,10 +1,13 @@
 from sendgrid import SendGridAPIClient
 from sendgrid.helpers.mail import Mail, Email, To, Content, Personalization
+from access_secret import access_secret
 
 
 def send_mail(recipients):
 
-    sg = SendGridAPIClient(api_key='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')
+    sendgrid_api_key = access_secret('SENDGRID_API')
+
+    sg = SendGridAPIClient(api_key=sendgrid_api_key)
     from_email = Email('maxrobertdl@gmail.com')
     subject = 'Updates on your festival(s)'
     content = Content('text/html','<strong>One of your festivals have updates, check the FestiFlow website for more info!</strong>')

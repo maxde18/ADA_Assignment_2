@@ -1,6 +1,8 @@
 import functions_framework
 import logging
 from flask import jsonify
+from mail_function import send_mail
+from sms_client import send_sms
 
 @functions_framework.http
 def route_requests(request):
@@ -25,6 +27,7 @@ def route_requests(request):
 
     # Send only if non-empty
     if email_recipients:
+        send_mail(email_recipients)
         logging.info(f"sent to {email_recipients}")
         print(f"sent to {email_recipients}")
 
@@ -34,6 +37,7 @@ def route_requests(request):
 
 
     if sms_recipients:
+        send_sms(sms_recipients)
         logging.info(f"sent to {sms_recipients}")
         print(f"sent to {sms_recipients}")
     else:
